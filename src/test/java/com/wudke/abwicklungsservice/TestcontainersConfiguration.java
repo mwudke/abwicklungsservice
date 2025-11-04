@@ -7,8 +7,10 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.containers.RabbitMQContainer;
 import org.testcontainers.utility.DockerImageName;
 
+import java.util.List;
+
 @TestConfiguration(proxyBeanMethods = false)
-class TestcontainersConfiguration {
+public class TestcontainersConfiguration {
 
 	@Bean
 	@ServiceConnection
@@ -20,7 +22,11 @@ class TestcontainersConfiguration {
 	@ServiceConnection
     PostgreSQLContainer<?> postgresContainer() {
         PostgreSQLContainer<?> container = new PostgreSQLContainer<>(DockerImageName.parse("postgres:18-alpine"))
-                .withDatabaseName("abwicklungsserviceDB");
+                //TODO: infos should not be static/come from a config
+                .withDatabaseName("abwicklungsserviceDB")
+                .withUsername("admin")
+                .withPassword("admin");
+        container.setPortBindings(List.of("5432:5432"));
         return container;
 	}
 
