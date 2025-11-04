@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Table(name = "abwicklungen")
 @Data
@@ -22,8 +23,9 @@ public class AbwicklungEntity {
     @Enumerated(EnumType.STRING)
     private PaymentState paymentState;
 
-    @Column(name = "recipient_id")
-    private String recipientId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "recipient_id", referencedColumnName = "id")
+    private RecipientEntity recipient;
 
     @Column(name = "print_id")
     private String printId;

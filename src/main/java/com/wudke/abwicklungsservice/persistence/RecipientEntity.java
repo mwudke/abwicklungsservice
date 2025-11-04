@@ -14,13 +14,12 @@ import lombok.NoArgsConstructor;
 public class RecipientEntity {
 
     @Id
-    @Column(nullable = false)
     private String id;
 
     @Column(nullable = false)
     private String name;
 
     @Convert(converter = AddressConverter.class)
-    @Column(name = "address", nullable = false, columnDefinition = "jsonb")
+    @Column(name = "address", nullable = false)
     private Address address;
 }
