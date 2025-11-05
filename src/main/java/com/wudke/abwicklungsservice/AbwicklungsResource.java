@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -19,7 +20,7 @@ public class AbwicklungsResource {
     /*
      *      AI Generated
      *      prompt: create the missing endpoints
-     *      (I wrote todos for both endpoints)
+     *      input: I wrote todos for both endpoints
      *
      */
 
@@ -28,11 +29,11 @@ public class AbwicklungsResource {
 
     // GET /v1/abwicklungen?name=...&licensePlate=...
     @GetMapping
-    public ResponseEntity<Iterable<AbwicklungsEntity>> getAll(
+    public ResponseEntity<List<AbwicklungsEntity>> getAll(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String licensePlate) {
 
-        Iterable<AbwicklungsEntity> result;
+        List<AbwicklungsEntity> result;
 
         if (name != null && licensePlate != null) {
             result = abwicklungsRepository.findByRecipientNameAndLicencePlate(name, licensePlate);
