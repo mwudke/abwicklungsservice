@@ -20,7 +20,7 @@ public class AbwicklungsResource {
     /*
      *      AI Generated
      *      prompt: create the missing endpoints
-     *      input: I wrote todos for both endpoints
+     *      input: I wrote short todos for both endpoints
      *
      */
 
