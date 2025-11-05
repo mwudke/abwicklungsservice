@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest
@@ -25,7 +25,7 @@ class RecipientRepositoryTest {
     void thatRecipientRepo_persistWorks() {
         assertEquals(0, recipientRepository.count());
 
-        RecipientEntity entity = new RecipientEntity("someId", "someName", new Address("Ladestr", "1", "22926", "Ahrensburg"));
+        RecipientEntity entity = new RecipientEntity("someName", new Address("Ladestr", "1", "22926", "Ahrensburg"));
         recipientRepository.save(entity);
 
 

@@ -1,17 +1,16 @@
--- todo: set varchar sizes and address should be jsonb
+-- todo: set varchar sizes and address should be jsonb, also add mtime, ctime
 
 create table if not exists recipients (
-    id varchar primary key,
+    id uuid primary key,
     name varchar not null,
     address varchar not null
 );
 
 
 create table if not exists abwicklungen (
-    id varchar not null,
-    licence_plate varchar not null,
-    payment_state varchar not null,
-    recipient_id varchar references recipients(id),
-    print_id varchar,
-    primary key (id)
+    id uuid primary key,
+    licence_plate varchar,
+    payment_state varchar,
+    recipient_id uuid references recipients(id),
+    print_id varchar
 );

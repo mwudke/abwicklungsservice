@@ -6,7 +6,7 @@ import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 @Converter
-public class AddressConverter implements AttributeConverter<Address, String> {
+public class AddressTypeConverter implements AttributeConverter<Address, String> {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
