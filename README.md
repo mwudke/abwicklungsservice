@@ -15,3 +15,4 @@ woraufhin sie ihre Events produzieren. -> Die Reihenfolge des Eventsempfangs ist
 - some edge case handling
 - Pin dependency versions
 - DB indices
+- finish Abwicklung-Recipient relation logic
