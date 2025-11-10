@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.UUID;
 
+import static org.springframework.http.ResponseEntity.notFound;
+import static org.springframework.http.ResponseEntity.ok;
+
 @Controller
 @RequestMapping("v1/abwicklungen")
 public class AbwicklungsResource {
@@ -22,6 +25,7 @@ public class AbwicklungsResource {
      *      prompt: create the missing endpoints
      *      input: I wrote short todos for both endpoints
      *
+     *      update: had to fix some things by hand
      */
 
     @Autowired
@@ -45,15 +49,23 @@ public class AbwicklungsResource {
             result = abwicklungsRepository.findAll();
         }
 
-        return ResponseEntity.ok(result);
+        return ok(result);
     }
 
     // GET /v1/abwicklungen/{id}
     @GetMapping("/{id}")
     public ResponseEntity<AbwicklungsEntity> getById(@PathVariable String id) {
-        return abwicklungsRepository.findById(UUID.fromString(id))
+       //i needed to add this try catch to handle invalid ids -max
+        UUID uuid;
+        try {
+            uuid = UUID.fromString(id);
+        } catch (IllegalArgumentException e) {
+            return notFound().build();
+        }
+
+        return abwicklungsRepository.findById(uuid)
                 .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(() -> notFound().build());
     }
 
 }

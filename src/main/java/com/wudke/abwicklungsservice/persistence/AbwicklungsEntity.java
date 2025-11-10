@@ -30,5 +30,5 @@ public class AbwicklungsEntity {
     private RecipientEntity recipient;
 
     @Column(name = "print_id")
-    private String printId;
+    private UUID printId;
 }

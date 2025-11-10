@@ -12,5 +12,5 @@ create table if not exists abwicklungen (
     licence_plate varchar,
     payment_state varchar,
     recipient_id uuid references recipients(id),
-    print_id varchar
+    print_id uuid
 );
