@@ -1,7 +1,7 @@
 # Abwicklungsservice
 
 ## Annahmen
-- Der Bezahl- & der Druck-Service konsumieren das selbe Bestellevent wie der Abwicklungsservice (bzw. werden zu einen nahen Zeitpunkt getriggert), 
+- Der Bezahl- & der Druck-Service konsumieren das selbe Bestellevent wie der Abwicklungsservice (bzw. werden zu einen dichten Zeitpunkt getriggert), 
 woraufhin sie ihre Events produzieren. -> Die Reihenfolge des Eventsempfangs ist nicht fest.
 
 
