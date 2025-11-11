@@ -1,8 +1,8 @@
 package com.wudke.abwicklungsservice;
 
 import com.wudke.abwicklungsservice.client.CreateShipmentDto;
+import com.wudke.abwicklungsservice.client.ShipmentRecipientDto;
 import com.wudke.abwicklungsservice.client.VersandServiceClient;
-import com.wudke.abwicklungsservice.model.Recipient;
 import com.wudke.abwicklungsservice.persistence.AbwicklungsEntity;
 import com.wudke.abwicklungsservice.persistence.Address;
 import com.wudke.abwicklungsservice.persistence.PaymentState;
@@ -48,17 +48,15 @@ public class CreateShipmentIfReadyCommandTest {
         verify(versandServiceClientMock, times(1)).createShipment(captor.capture());
 
         CreateShipmentDto dto = captor.getValue();
-        assertEquals(ID, dto.parcelId());
+        assertEquals(ID.toString(), dto.parcelId());
 
-        Recipient rec = dto.recipient();
+        ShipmentRecipientDto rec = dto.recipient();
         assertNotNull(rec);
         assertEquals(NAME, rec.name());
-
-        Recipient.Address addr = rec.address();
-        assertEquals(STREET, addr.street());
-        assertEquals(HOUSE_NUMBER, addr.houseNumber());
-        assertEquals(ZIP_CODE, addr.zipCode());
-        assertEquals(CITY, addr.city());
+        assertEquals(STREET, rec.street());
+        assertEquals(HOUSE_NUMBER, rec.houseNumber());
+        assertEquals(ZIP_CODE, rec.zipCode());
+        assertEquals(CITY, rec.city());
     }
 
     @Test

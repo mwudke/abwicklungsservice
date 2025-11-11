@@ -58,6 +58,7 @@ public class AbwicklungsService {
         if (optionalAbwicklungsEntity.isPresent()) {
             AbwicklungsEntity abwicklungsEntity = optionalAbwicklungsEntity.get();
 
+            //todo: we are currently overwriting the past states. Do we need to keep track of those?
             abwicklungsEntity.setPaymentState(bezahlEvent.status());
             abwicklungsRepository.save(abwicklungsEntity);
 
