@@ -16,3 +16,4 @@ woraufhin sie ihre Events produzieren. -> Die Reihenfolge des Eventsempfangs ist
 - Pin dependency versions
 - DB indices
 - finish Abwicklung-Recipient relation logic
+- add swagger UI and document endpoints
