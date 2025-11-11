@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class VersandServiceClient {
 
     public void createShipment(CreateShipmentDto createShipmentDto) {
-        //TODO: impl client also consider what to do on errors...
+        //TODO: impl. client, also consider what to do on errors...
 
     }
 }
