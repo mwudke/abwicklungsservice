@@ -24,7 +24,7 @@ public class CreateShipmentIfReadyCommand {
     public void execute(AbwicklungsEntity abwicklungsEntity) {
         if (PaymentState.SUCCESS.equals(abwicklungsEntity.getPaymentState()) && abwicklungsEntity.getPrintId() != null) {
             log.info("Abwicklung {} is ready for shipment", abwicklungsEntity.getId());
-            CreateShipmentDto createShipmentDto = new CreateShipmentDto(abwicklungsEntity.getId().toString(), recipientEntityToDto(abwicklungsEntity.getRecipient()));
+            CreateShipmentDto createShipmentDto = new CreateShipmentDto(abwicklungsEntity.getPrintId().toString(), recipientEntityToDto(abwicklungsEntity.getRecipient()));
             versandServiceClient.createShipment(createShipmentDto);
         }
     }

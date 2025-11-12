@@ -48,7 +48,7 @@ public class CreateShipmentIfReadyCommandTest {
         verify(versandServiceClientMock, times(1)).createShipment(captor.capture());
 
         CreateShipmentDto dto = captor.getValue();
-        assertEquals(ID.toString(), dto.parcelId());
+        assertEquals(PRINT_ID.toString(), dto.parcelId());
 
         ShipmentRecipientDto rec = dto.recipient();
         assertNotNull(rec);
