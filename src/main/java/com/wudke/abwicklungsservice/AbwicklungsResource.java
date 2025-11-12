@@ -25,7 +25,7 @@ public class AbwicklungsResource {
      *      prompt: create the missing endpoints
      *      input: I wrote short todos for both endpoints
      *
-     *      update: had to fix some things by hand
+     *      update: had to fix some things by hand, also noticed that we should use ContainingIgnoreCase instead of strict find by
      */
 
     @Autowired
